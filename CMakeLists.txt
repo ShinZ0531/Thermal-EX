@@ -6,15 +6,15 @@ set(CMAKE_CXX_STANDARD 17)
 
 add_compile_options(-Wall -pedantic)
 
-add_library(mult5 mult5.cpp)
+add_library(Arknights Arknights.cpp)
 
 add_executable(helloworld
     helloworld.cpp
 )
 
-target_link_libraries(helloworld mult5)
+target_link_libraries(helloworld Arknights)
 
-enable_testing()
-add_executable(test_mult5 test_mult5.cpp)
-target_link_libraries(test_mult5 mult5)
-add_test(TestMult5 test_mult5)
+# enable_testing()
+# add_executable(test_mult5 test_mult5.cpp)
+# target_link_libraries(test_mult5 mult5)
+# add_test(TestMult5 test_mult5)
