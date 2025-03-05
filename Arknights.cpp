@@ -19,11 +19,11 @@ static string readFileFirstLine(const string& filePath) {
     return line;
 }
 
-string LinuxLogo::getOSInfo() {
+string Arknights::getOSInfo() {
     return readFileFirstLine("/etc/os-release");
 }
 
-string LinuxLogo::getKernelInfo() {
+string Arknights::getKernelInfo() {
     struct utsname buffer;
     if (uname(&buffer) == 0) {
         return buffer.release;
@@ -31,7 +31,7 @@ string LinuxLogo::getKernelInfo() {
     return "Unknown Kernel";
 }
 
-string LinuxLogo::getCPUInfo() {
+string Arknights::getCPUInfo() {
     ifstream file("/proc/cpuinfo");
     string line, model;
     while (getline(file, line)) {
@@ -43,7 +43,7 @@ string LinuxLogo::getCPUInfo() {
     return model.empty() ? "Unknown CPU" : model;
 }
 
-string LinuxLogo::getMemoryInfo() {
+string Arknights::getMemoryInfo() {
     ifstream file("/proc/meminfo");
     string line, mem;
     while (getline(file, line)) {
@@ -55,7 +55,7 @@ string LinuxLogo::getMemoryInfo() {
     return mem.empty() ? "Unknown Memory" : mem;
 }
 
-void LinuxLogo::printLogo() {
+void Arknights::printLogo() {
     cout << GREEN << Arknights_LOGO << RESET << endl;
     cout << GREEN << "OS: " << RESET << getOSInfo() << endl;
     cout << GREEN << "Kernel: " << RESET << getKernelInfo() << endl;
