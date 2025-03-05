@@ -1,10 +1,8 @@
-#include<stdio.h>
+#include "Arknights.h"
 
-#include "mult5.h"
-
-// Main program
-int main(int, char **)
-{
-    printf("cmake Hello World!\n");
-    printf("6 mulipiled by 5 is: %f\n",mult5(6));
+int main() {
+    LinuxLogo::printLogo();
+    printf("Arknights.\n");
+    printf("Welcome back, Doctor! I see that you're also full of light and heat today!\n");
+    return 0;
 }
