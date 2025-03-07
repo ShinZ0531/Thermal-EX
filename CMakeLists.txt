@@ -1,6 +1,8 @@
 cmake_minimum_required(VERSION 3.7.0)
 
-project(cmake-hello-world VERSION 1.0.0 LANGUAGES CXX)
+project(Thermal-EX VERSION 1.0.0 LANGUAGES CXX)
+
+configure_file(${CMAKE_SOURCE_DIR}/config.h.in ${CMAKE_BINARY_DIR}/config.h @ONLY)
 
 set(CMAKE_CXX_STANDARD 17)
 
@@ -13,8 +15,3 @@ add_executable(helloworld
 )
 
 target_link_libraries(helloworld Arknights)
-
-# enable_testing()
-# add_executable(test_mult5 test_mult5.cpp)
-# target_link_libraries(test_mult5 mult5)
-# add_test(TestMult5 test_mult5)
