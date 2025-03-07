@@ -1,64 +1,28 @@
 #include "Arknights.h"
+#include "config.h
 #include <iostream>
+#include <ctime>
 #include <fstream>
-#include <sys/utsname.h>
 
 using namespace std;
 
-#define GREEN "\033[32m"
 #define RESET "\033[0m"
+#define BLUE_BOLD "\033[1;34m"
+#define BOLD "\033[1m"
 
-// 读取文件的第一行内容
-static string readFileFirstLine(const string& filePath) {
-    ifstream file(filePath);
-    string line;
-    if (file.is_open()) {
-        getline(file, line);
-        file.close();
-    }
-    return line;
-}
 
-string Arknights::getOSInfo() {
-    return readFileFirstLine("/etc/os-release");
-}
-
-string Arknights::getKernelInfo() {
-    struct utsname buffer;
-    if (uname(&buffer) == 0) {
-        return buffer.release;
-    }
-    return "Unknown Kernel";
-}
-
-string Arknights::getCPUInfo() {
-    ifstream file("/proc/cpuinfo");
-    string line, model;
-    while (getline(file, line)) {
-        if (line.find("model name") != string::npos) {
-            model = line.substr(line.find(":") + 2);
-            break;
-        }
-    }
-    return model.empty() ? "Unknown CPU" : model;
-}
-
-string Arknights::getMemoryInfo() {
-    ifstream file("/proc/meminfo");
-    string line, mem;
-    while (getline(file, line)) {
-        if (line.find("MemTotal") != string::npos) {
-            mem = line.substr(line.find(":") + 2);
-            break;
-        }
-    }
-    return mem.empty() ? "Unknown Memory" : mem;
+char* Arknights::getTime() {
+    time_t now = time(0);
+    return ctime(&now);
 }
 
 void Arknights::printLogo() {
-    cout << GREEN << Arknights_LOGO << RESET << endl;
-    cout << GREEN << "OS: " << RESET << getOSInfo() << endl;
-    cout << GREEN << "Kernel: " << RESET << getKernelInfo() << endl;
-    cout << GREEN << "CPU: " << RESET << getCPUInfo() << endl;
-    cout << GREEN << "Memory: " << RESET << getMemoryInfo() << endl;
+    cout << BLUE_BOLD << Arknights_LOGO << RESET << endl;
+    cout << BOLD << "Local Time: " << getTime() << endl;
+    cout << BOLD << "Project Name: " << PROJECT_NAME << endl;
+    cout << BOLD << "Project Version: " << PROJECT_VERSION << endl;
+    cout <<THRMEX_LOGO << endl;
+    cout << BLUE_BOLD << "Thermal-EX: " << RESET << "Arknights." << endl;
+    cout << BLUE_BOLD << "Thermal-EX: " << RESET << "Welcome back, Doctor! I see that you're also full of light and heat today!" << endl;
 }
+

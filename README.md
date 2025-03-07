@@ -5,6 +5,5 @@ template
 ```
 cmake .
 make
-make test
 ./helloworld
 ```
