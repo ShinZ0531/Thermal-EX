@@ -1,5 +1,5 @@
 #include "Arknights.h"
-#include "config.h
+#include "config.h"
 #include <iostream>
 #include <ctime>
 #include <fstream>
