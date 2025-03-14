@@ -1,15 +1,21 @@
-#include "LEDController.h"
-#include "Arknights.h"
-#include <iostream>  
+#include "LED/LEDController.h"
+#include "Arknights/Arknights.h"
+#include <iostream>
 
-int main() {  
-
+/**
+ * @brief Entry point for the application.
+ * 
+ * @return Integer 0 upon exit success, non-zero on error.
+ */
+int main() {
     Arknights::printLogo();
-    try {  
-        LEDController led(17);  // 控制GPIO17的LED  
-        led.startBlinking();    // 开始闪烁（默认500ms间隔）  
-    } catch (const std::exception& e) {  
-        std::cerr << "Error: " << e.what() << std::endl;  
-    }  
-    return 0;  
-}  
+    
+    try {
+        LEDController led;
+        led.startBlinking();
+    } catch (const std::exception& e) {
+        std::cerr << "Error: " << e.what() << std::endl;
+        return 1;
+    }
+    return 0;
+}

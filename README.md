@@ -9,7 +9,13 @@ cd build
 cmake .. -DCMAKE_BUILD_TYPE=Debug
 # cmake .. -DCMAKE_BUILD_TYPE=Release
 make -j
-./lightWithLogo
+./light
 ```
 
 For clean: in the /build , `make clean`
+
+## version
+### Unreleased Edition
+1.0.0: Print logo of original game and THRM-EX.  
+1.1.0: Add new function about light on and off.  
+1.2.0: Using libgpio to control the GPIO, instead of ~~antique~~ wiringPi. Add Doxygen comments.
