@@ -16,7 +16,7 @@
  * 
  * LED will be on and off with the interval.
  * 
- * Target light should link to GPIO line 23.
+ * Target light should link to GPIO line LED_BCM_PIN.
  */
 class LEDController {
 private:
