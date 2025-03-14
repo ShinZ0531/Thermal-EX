@@ -8,8 +8,12 @@ add_compile_options(-Wall -pedantic)
 
 find_library(WIRINGPI_LIB wiringPi)
 
+add_library(lightLib STATIC light.cpp)
+
 add_executable(light
 	light.cpp
 )
 
 target_link_libraries(light ${WIRINGPI_LIB})
+
+target_include_directories(lightLib PUBLIC ${CMAKE_SOURCE_DIR})

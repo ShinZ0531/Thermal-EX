@@ -1,7 +1,10 @@
 #include <stdio.h>
 #include <wiringPi.h>
+#include "Arknights/Arknights.h"
+
 int main()
-{
+{   
+    Arknights::printLogo();
     wiringPiSetup();
     pinMode(4,OUTPUT);
     while(1)
@@ -13,5 +16,3 @@ int main()
     }
     return 0;
 }
-
-
