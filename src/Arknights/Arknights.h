@@ -36,7 +36,6 @@ const std::string Arknights_LOGO = R"(
                           -                          =%*:    :.   %@+                               
                                                     :-       .=#*##.                                
                                                                :%=                                  
-
 )";
 
 const std::string THRMEX_LOGO = R"(

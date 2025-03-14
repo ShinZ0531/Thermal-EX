@@ -46,7 +46,3 @@ _deps
 CMakeUserPresets.json
 /build
 /.vscode
-
-# For final executables files
-helloworld
-test_mult5
