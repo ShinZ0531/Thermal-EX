@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.7.0)
 
-project(Thermal-EX DESCRIPTION "Ultrasonic ranging." VERSION 1.4.0 LANGUAGES CXX)
+project(Thermal-EX DESCRIPTION "LED blinking and ultrasonic ranging." VERSION 2.0.0 LANGUAGES CXX)
 
 configure_file(${CMAKE_SOURCE_DIR}/src/Arknights/config.h.in ${CMAKE_SOURCE_DIR}/src/Arknights/config.h @ONLY)
 

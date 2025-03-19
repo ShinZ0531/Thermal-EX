@@ -1,23 +1,27 @@
 # Thermal-EX
 
-In this project, shell will print the logo of Arknights and Thermal-EX. Ready to add other functions.
+In this project, we ready to make a smart car based on Thermal-EX, a character from game Arknights. He's a enthusiastic robot, ready to help you anywhere and anytime. We want to use this way for building the connection with the fan groups of this game, makeing fun for them who are love this game deeply.   
+It is a basic prototype. We plan to add more functions in the furture.
+![Preview](image/v2-Whole.jpg)
 ## How to use
 
 ```cmake
-# For test
-# sudo apt-get install libgtest-dev libgmock-dev
-
 mkdir build
 cd build
-cmake .. -DCMAKE_BUILD_TYPE=Debug
-# cmake .. -DCMAKE_BUILD_TYPE=Release
+cmake .. -DCMAKE_BUILD_TYPE=Release
 make -j
-./light
 ```
-
-For clean: in the /build , `make clean`
+Here are two main commends now.  
+**./light**: It will print the logo of Arknights and Thermal-EX and say hi to you, then the LED light will start to blink slowly.  
+![LED Blinking](image/v2-LEDBlinking.jpg)  
+**./Ultrasonic**: We can use ultrasonic sensor to measure the distance and show it on the screen! Meanwhile, the time and the value can be recorded in the file, so in the furture we can analyze these data.  
 
 ## version
+
+### Released Edition
+#### 2.0.0
+The first released edition! It offers two main functions, LED light blinking and ultrasonic ranging.
+
 ### Unreleased Edition
 #### 1.0.0
 Print logo of original game and THRM-EX.  
@@ -28,4 +32,4 @@ Using libgpio to control the GPIO, instead of ~~antique~~ wiringPi. Add Doxygen 
 #### 1.3.0
 New function about ultrasonic, but wiringPi.  
 #### 1.4.0
-Ultrasonic ranging, using libgpio instead of wiringPi. Finally! Now we can use ultrasonic sensor to measure the distance and show it on the screen! Just in the ./ultrasonic. Meanwhile, the time and the value can be recorded in the file, so in the furture we can analyze these data.
+Ultrasonic ranging, using libgpio instead of wiringPi. Finally! 
