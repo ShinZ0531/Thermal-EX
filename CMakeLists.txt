@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.7.0)
 
-project(Thermal-EX DESCRIPTION "LED blinking and ultrasonic ranging." VERSION 2.0.0 LANGUAGES CXX)
+project(Thermal-EX DESCRIPTION "LED blinking and ultrasonic ranging." VERSION 2.1.0 LANGUAGES CXX)
 
 configure_file(${CMAKE_SOURCE_DIR}/src/Arknights/config.h.in ${CMAKE_SOURCE_DIR}/src/Arknights/config.h @ONLY)
 
@@ -11,10 +11,6 @@ add_compile_options(-Wall -pedantic)
 find_package(PkgConfig REQUIRED)  
 pkg_check_modules(GPIOD REQUIRED libgpiod)  
 
-# find_library(WIRINGPI_LIB wiringPi)  
-# if (NOT WIRINGPI_LIB)  
-#     message(FATAL_ERROR "wiringPi library not found!")  
-# endif()  
 
 add_library(Arknights 
     src/Arknights/Arknights.cpp
