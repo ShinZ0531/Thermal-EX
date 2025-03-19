@@ -1,7 +1,7 @@
 #include "LEDController.h"
 #include "Config.h"
 
-LEDController::LEDController() : isActive(false), blinkIntervalMs(BLINK_INTERVAL_MS) {
+LEDController::LEDController() : isActive(false), blinkIntervalMs(BLINK_INTERVAL) {
     initializeGPIO();
 }
 
