@@ -80,8 +80,6 @@ void hcsr04::dataCollection() {
 			gpiod_line_event event;
 			gpiod_line_event_read(echoLine_, &event); // 读取事件类型
 			if (event.event_type == GPIOD_LINE_EVENT_RISING_EDGE) {
-				// start = std::chrono::high_resolution_clock::now(); // 记录上升沿时间
-				// start = TimeUtils::getSysTimeMicros();
 				pulse.risingEdge = std::chrono::high_resolution_clock::now();
 			}
 			else{
@@ -100,8 +98,6 @@ void hcsr04::dataCollection() {
 			gpiod_line_event event;
 			gpiod_line_event_read(echoLine_, &event);
 			if (event.event_type == GPIOD_LINE_EVENT_FALLING_EDGE) {
-				// end = std::chrono::high_resolution_clock::now(); // 记录下降沿时间
-				// ends = TimeUtils::getSysTimeMicros();
 				pulse.fallingEdge = std::chrono::high_resolution_clock::now();
 			}
 			else {
@@ -113,15 +109,10 @@ void hcsr04::dataCollection() {
 			if (waitingSignal == 0) throw std::runtime_error("[Ultrasonic] Timeout for waiting falling edge");
 			else throw std::runtime_error("[Ultrasonic] Error occurred while waiting for a falling edge");
 		}
-		
-		// ends = TimeUtils::getSysTimeMicros();
 
 		if (pulseCallback_) pulseCallback_(pulse);
 
 		std::this_thread::sleep_for(std::chrono::milliseconds(MEASURE_INTERVAL));
-
-		
-		// std::cout << "start time: " << start << ", end time: " << ends << std::endl;
 	}
 }
 
@@ -138,7 +129,7 @@ void hcsr04::setMeasureInterval(int interval) {
 
 timespec hcsr04::microsToTimespec(int64_t micros) {
     timespec ts;
-    ts.tv_sec = micros / 1'000'000;          // 秒部分
-    ts.tv_nsec = (micros % 1'000'000) * 1000; // 剩余微秒转纳秒
+    ts.tv_sec = micros / 1'000'000;
+    ts.tv_nsec = (micros % 1'000'000) * 1000;
     return ts;
 }
