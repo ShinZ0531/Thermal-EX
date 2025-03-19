@@ -1,0 +1,6 @@
+#define PROJECT_NAME "Thermal-EX"
+#define PROJECT_VERSION "1.4.0"
+#define PROJECT_DESCRIPTION "Ultrasonic ranging."
+#define PROJECT_VERSION_MAJOR 1
+#define PROJECT_VERSION_MINOR 4
+#define PROJECT_VERSION_PATCH 0
