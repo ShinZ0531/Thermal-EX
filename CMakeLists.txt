@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.7.0)
 
-project(Thermal-EX DESCRIPTION "LED blinking and ultrasonic ranging." VERSION 2.1.0 LANGUAGES CXX)
+project(Thermal-EX DESCRIPTION "Ultrasonic-HCSR04, LED" VERSION 2.1.1 LANGUAGES CXX)
 
 configure_file(${CMAKE_SOURCE_DIR}/src/Arknights/config.h.in ${CMAKE_SOURCE_DIR}/src/Arknights/config.h @ONLY)
 
@@ -26,12 +26,11 @@ add_executable(light
     src/main.cpp  
 )
 
-add_executable(Ultrasonic
-	src/ultrasonic.cpp
-    src/Ultrasonic/ultrasonic.cpp
-    src/Ultrasonic/DataLogger.cpp
+add_executable(HCSR04_Printer
+	src/HCSR04_Printer.cpp
+    src/UltrasonicCallback/HCSR04.cpp
+    # src/UltrasonicCallback/DataLogger.cpp
 )
-
 
 
 target_link_libraries(light PRIVATE 
@@ -41,7 +40,7 @@ target_link_libraries(light PRIVATE
     ${LIBGPIOD_LIBRARIES}
 )  
 
-target_link_libraries(Ultrasonic PRIVATE 
+target_link_libraries(HCSR04_Printer PRIVATE 
     ${GPIOD_LIBRARIES}
 )
 
@@ -49,7 +48,7 @@ target_include_directories(light PRIVATE
     ${LIBGPIOD_INCLUDE_DIRS}
 )
 
-target_include_directories(Ultrasonic PRIVATE
+target_include_directories(HCSR04_Printer PRIVATE
     ${GPIOD_INCLUDE_DIRS}
     src
 )
