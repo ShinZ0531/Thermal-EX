@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.7.0)
 
-project(Thermal-EX DESCRIPTION "Ultrasonic-HCSR04, LED" VERSION 2.1.1 LANGUAGES CXX)
+project(Thermal-EX DESCRIPTION "Ultrasonic-HCSR04, LED" VERSION 2.1.2 LANGUAGES CXX)
 
 configure_file(${CMAKE_SOURCE_DIR}/src/Arknights/config.h.in ${CMAKE_SOURCE_DIR}/src/Arknights/config.h @ONLY)
 
@@ -22,19 +22,17 @@ add_library(LEDController STATIC
 
 target_link_libraries(LEDController PRIVATE ${GPIOD_LIBRARIES})  
 
-add_executable(light  
-    src/main.cpp  
+add_executable(LED_light  
+    src/LED_light.cpp  
 )
 
 add_executable(HCSR04_Printer
 	src/HCSR04_Printer.cpp
-    src/UltrasonicCallback/HCSR04.cpp
-    # src/UltrasonicCallback/DataLogger.cpp
+    src/Ultrasonic/HCSR04.cpp
 )
 
 
-target_link_libraries(light PRIVATE 
-    ${WIRINGPI_LIB} 
+target_link_libraries(LED_light PRIVATE 
     Arknights 
     LEDController
     ${LIBGPIOD_LIBRARIES}
@@ -44,7 +42,7 @@ target_link_libraries(HCSR04_Printer PRIVATE
     ${GPIOD_LIBRARIES}
 )
 
-target_include_directories(light PRIVATE
+target_include_directories(LED_light PRIVATE
     ${LIBGPIOD_INCLUDE_DIRS}
 )
 
