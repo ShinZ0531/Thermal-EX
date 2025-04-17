@@ -12,7 +12,11 @@ int main() {
     
     try {
         LEDController led;
-        led.startBlinking();
+        printf("Press Enter to start ranging, press again to stop ranging.\n");
+        getchar();
+        led.startLED();
+        getchar();
+        led.stopLED();
     } catch (const std::exception& e) {
         std::cerr << "Error: " << e.what() << std::endl;
         return 1;

@@ -51,7 +51,6 @@ void HCSR04::initializeGPIO() {
 }
 
 void HCSR04::startRanging() {
-	// pulseCallback_ = cb;
     isActive_ = true;
 	workerThread_ = std::thread(&HCSR04::dataCollection, this);
     // workerThread_ = std::thread([this](){ dataCollection(); });
