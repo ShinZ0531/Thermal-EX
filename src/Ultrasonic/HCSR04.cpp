@@ -105,8 +105,6 @@ void HCSR04::dataCollection() {
 			else throw std::runtime_error("[Ultrasonic] Error occurred while waiting for a falling edge");
 		}
 
-		// if (pulseCallback_) pulseCallback_(pulse);
-
 		for(auto &cb: hcsr04CallbackInterfaces) {
 			cb->hasHCSR04Sample(pulse);
 		}

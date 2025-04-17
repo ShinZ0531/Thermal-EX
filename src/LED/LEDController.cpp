@@ -33,6 +33,7 @@ void LEDController::initializeGPIO() {
 void LEDController::startLED() {
     isActive_ = true;
     workerThread_ = std::thread(&LEDController::LEDBlinking, this);
+    keybordThread_ = std::thread(&LEDController::waitForKeyboardInput, this);
 }
 
 void LEDController::LEDBlinking() {
@@ -51,6 +52,7 @@ void LEDController::stopLED() {
     if(!isActive_) return;
     isActive_ = false;
     if (workerThread_.joinable()) workerThread_.join();
+    if (keybordThread_.joinable()) keybordThread_.join();
     if (ledLine) {
         gpiod_line_release(ledLine);
         gpiod_chip_close(gpiod_line_get_chip(ledLine));
@@ -63,5 +65,68 @@ void LEDController::stopLED() {
  * @param interval  time gap
  */
 void LEDController::setBlinkInterval(int interval) {
-    if (interval > 0) blinkIntervalMs = interval;
+    if (interval > 0) 
+    {
+        blinkIntervalMs = interval;
+        // changeBlinkInterval(interval);
+    }
+    else throw std::runtime_error("[LED] Failed to set blink interval. It must be positive number");
+}
+    
+void LEDController::turnOn() {
+    gpiod_line_set_value(ledLine, 1);
+}
+
+void LEDController::turnOff() {
+    gpiod_line_set_value(ledLine, 0);
+}
+
+int LEDController::getLEDBlinkInterval() {
+    return blinkIntervalMs;
+}
+
+
+void LEDController::notifyCallbacks(int interval) {
+    for(auto &cb: ledCallbackInterfaces) {
+        cb->hasLEDSample(interval);
+    }
+}
+
+void LEDController::waitForStart() {
+    printf("Press s to start ranging, press q to stop ranging.\n");
+        while(isActive_){
+            char keyboardInput = getchar();
+            if (keyboardInput == 's') 
+            {
+                LEDController::startLED();
+                int nowBlinkInterval = LEDController::getLEDBlinkInterval();
+                printf("Now LED blink interval is %d ms\n", nowBlinkInterval);
+                break;
+            }
+            else if (keyboardInput == 'q') 
+            {
+                LEDController::stopLED();
+                break;
+            }
+        }
+}
+
+int LEDController::waitForKeyboardInput() {
+    printf("Press 1-9 to change the LED blink interval to 100-900ms, and 0 means 1000ms.\n");
+    while(isActive_){
+        char input = getchar();
+        if (input == 'q') {
+            stopLED();
+            return 0;
+            break;
+        }
+        else if (input >= '0' && input <= '9'){
+            int interval;
+            if (input == '0') interval = 1000;
+            else interval = (input - '0') * 100;
+            
+            notifyCallbacks(interval);
+        }
+    }
+    return 0;
 }

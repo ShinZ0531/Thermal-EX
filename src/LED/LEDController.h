@@ -41,20 +41,23 @@ public:
     void startLED();
     void LEDBlinking();
     void stopLED();
+    void turnOn();
+    void turnOff();
     void setBlinkInterval(int interval);
-
+    void notifyCallbacks(int interval);
+    int getLEDBlinkInterval();
+    void waitForStart();
+    int waitForKeyboardInput();
 private:
     std::vector<LEDCallbackInterface*> ledCallbackInterfaces;
     struct gpiod_line* ledLine;
     bool isActive_;
     std::thread workerThread_;
+    std::thread keybordThread_;
     int blinkIntervalMs;
     const char* chipName = "gpiochip0";
-
     
     void initializeGPIO();
-
-
 };
 
 #endif
