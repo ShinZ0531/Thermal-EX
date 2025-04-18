@@ -21,8 +21,19 @@
 
 
 In this project, we ready to make a smart car based on Thermal-EX, a character from game Arknights. He's a enthusiastic robot, ready to help you anywhere and anytime. We want to use this way for building the connection with the fan groups of this game, makeing fun for them who are love this game deeply.   
-It is a basic prototype. We plan to add more functions in the furture.  
+
+**TODO function**
+
+LED blinking interval will be changed with the distance of ultrasonic ranging.
+
+Add servo motor to rotate the head.
+
+Add microphone and speaker for better interaction.
+
+Add camera for face recognition.
+
 ![Preview](image/v2-Whole.jpg)  
+
 ## 📜 How to use
 
 ```cmake
@@ -32,15 +43,22 @@ cmake .. -DCMAKE_BUILD_TYPE=Release
 make -j
 ```
 Here are two main functions now.  
-**./light**: It will print the logo of Arknights and Thermal-EX and say hi to you, then the LED light will start to blink slowly.  
+
+**./LED_light**: It will print the logo of Arknights and Thermal-EX and say hi to you, then the LED light will start to blink slowly. The blinking interval can be changed through keyboard input.
+
 ![LED Blinking](image/v2-LEDBlinking.jpg)  
-**./Ultrasonic**: We can use ultrasonic sensor to measure the distance and show it on the screen! Meanwhile, the time and the value can be recorded in the file, so in the furture we can analyze these data.  
+
+**./HCSR04_Printer**: We can use ultrasonic sensor to measure the distance and show it on the screen! Meanwhile, the time and the value can be recorded in the file optionally, so in the furture we can analyze these data.  
 
 ## 📦 version
 
 ### Released Edition
 #### 2.0.0
 The first released edition! It offers two main functions, LED light blinking and ultrasonic ranging.
+#### 2.2.0
+Add callback for LED and HCSR04 ultrasonic sensor. Provide individual tests for each function.
+
+
 
 ### Unreleased Edition
 #### 1.0.0
@@ -53,6 +71,8 @@ Using libgpio to control the GPIO, instead of ~~antique~~ wiringPi. Add Doxygen 
 New function about ultrasonic, but wiringPi.  
 #### 1.4.0
 Ultrasonic ranging, using libgpio instead of wiringPi. Finally! 
+#### 2.1.0
+Make some code adjustment.
 
 ## ⚖️ License
 
