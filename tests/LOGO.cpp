@@ -1,4 +1,4 @@
-#include "Arknights/Arknights.h"
+#include "src/Arknights/Arknights.h"
 
 int main() {
     Arknights::printLogo();

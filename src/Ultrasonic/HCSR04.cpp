@@ -1,21 +1,16 @@
-#include "ultrasonic.h"
+#include "HCSR04.h"
 #include "Config.h"
 
-hcsr04::hcsr04() : isActive_(false) {
+HCSR04::HCSR04() : isActive_(false) {
 	initializeGPIO();
 }
 
-hcsr04::~hcsr04() {
+HCSR04::~HCSR04() {
 	stopRanging();
-	if (trigLine_ || echoLine_) {
-		if (trigLine_) gpiod_line_release(trigLine_);
-		if (echoLine_) gpiod_line_release(echoLine_);
-        gpiod_chip_close(gpiod_line_get_chip(trigLine_));
-    }
 }
 
 
-void hcsr04::initializeGPIO() {
+void HCSR04::initializeGPIO() {
 	// open GPIO chip
     struct gpiod_chip* chip = gpiod_chip_open_by_name(chipName);
     if (!chip) {
@@ -55,13 +50,13 @@ void hcsr04::initializeGPIO() {
 	setMeasureInterval(MEASURE_INTERVAL);
 }
 
-void hcsr04::startRanging(PulseCallback cb) {
-	pulseCallback_ = cb;
+void HCSR04::startRanging() {
     isActive_ = true;
-    workerThread_ = std::thread([this](){ dataCollection(); });
+	workerThread_ = std::thread(&HCSR04::dataCollection, this);
+    // workerThread_ = std::thread([this](){ dataCollection(); });
 }
 
-void hcsr04::dataCollection() {
+void HCSR04::dataCollection() {
 	while(isActive_){
 		// used to store the data
 		EchoPulse pulse;
@@ -110,24 +105,34 @@ void hcsr04::dataCollection() {
 			else throw std::runtime_error("[Ultrasonic] Error occurred while waiting for a falling edge");
 		}
 
-		if (pulseCallback_) pulseCallback_(pulse);
+		for(auto &cb: hcsr04CallbackInterfaces) {
+			cb->hasHCSR04Sample(pulse);
+		}
 
 		std::this_thread::sleep_for(std::chrono::milliseconds(MEASURE_INTERVAL));
 	}
 }
 
 
-void hcsr04::stopRanging() {
+void HCSR04::stopRanging() {
+	if(!isActive_) return;
 	isActive_ = false;
+	// wait for the worker thread to finish
     if (workerThread_.joinable()) workerThread_.join();
+	// release GPIO lines
+	if (trigLine_ || echoLine_) {
+		if (trigLine_) gpiod_line_release(trigLine_);
+		if (echoLine_) gpiod_line_release(echoLine_);
+        gpiod_chip_close(gpiod_line_get_chip(trigLine_));
+    }
 }
 
-void hcsr04::setMeasureInterval(int interval) {
+void HCSR04::setMeasureInterval(int interval) {
     if (interval > 0) measureInterval_ = interval;
 	else throw std::runtime_error("[Ultrasonic] Failed to set measure interval. It must be positive number");
 }
 
-timespec hcsr04::microsToTimespec(int64_t micros) {
+timespec HCSR04::microsToTimespec(int64_t micros) {
     timespec ts;
     ts.tv_sec = micros / 1'000'000;
     ts.tv_nsec = (micros % 1'000'000) * 1000;
