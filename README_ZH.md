@@ -24,11 +24,11 @@
 ### 查看我们的视频演示
 成品功能展示：
 
-早期功能展示：
-<iframe src="//player.bilibili.com/player.html?isOutside=true&aid=114251196797466&bvid=BV16FZzYbERi&cid=29149497834&p=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"></iframe>
-或
-<iframe width="560" height="315" src="https://www.youtube.com/embed/FJetTLFNYLg?si=ftQwnrCQYcUNcibj" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+早期功能展示：  
+[老大说4月前看不到视频就不让我玩太刀喵](https://www.bilibili.com/video/BV16FZzYbERi) (bilibili连接)
 
+或油管↓  
+[![视频封面描述](https://img.youtube.com/vi/FJetTLFNYLg/0.jpg)](https://www.youtube.com/watch?v=FJetTLFNYLg)
 ### 计划中的更新功能
 
 加入麦克风和音响，以提供更好的互动体验。
