@@ -17,6 +17,7 @@ SG90Controller::SG90Controller(int pwm_channel, int pwm_chip)
     if(pwm.start(pwm_channel, PWM_FREQ, 0.0f, pwm_chip) < 0) {
         throw std::runtime_error("Failed to initialize PWM");
     }
+    currentMode.store(SG90Mode::SCANNING);
 }
 
 SG90Controller::~SG90Controller() {
@@ -87,9 +88,10 @@ void SG90Controller::enableSG90() {
 
 void SG90Controller::disableSG90() {
     if(!isActive_) return;
-        std::lock_guard<std::mutex> lock(dataMutex);
     isActive_ = false;
+
     pwm.stop();
+    
     if(pwmThread.joinable()) pwmThread.join();
     
 }
@@ -154,4 +156,53 @@ void SG90Controller::change15Angle(float delta) {
     std::cout << "Target angle: " << newAngle << std::endl;
     setSpeed(20);
     setAngleSmooth(newAngle);
+}
+
+void SG90Controller::startScanning() {
+    std::lock_guard<std::mutex> lock(modeMutex);
+    stopScanThread = false;
+    currentMode = SG90Mode::SCANNING;
+    if (scanThread.joinable()) scanThread.join();
+    scanThread = std::thread(&SG90Controller::scanningRoutine, this);
+}
+
+void SG90Controller::stopScanning() {
+    std::lock_guard<std::mutex> lock(modeMutex);
+    stopScanThread = true;
+    if (scanThread.joinable()) scanThread.join();
+}
+
+void SG90Controller::scanningRoutine() {
+    float angle = 60.0f;
+    bool increasing = true;
+    setSpeed(20);
+    enableSG90();
+
+    while (!stopScanThread) {
+        setAngleSmooth(angle);
+        std::this_thread::sleep_for(std::chrono::milliseconds(500));
+
+        if (increasing) {
+            angle += 15.0f;
+            if (angle >= 120.0f) increasing = false;
+        } else {
+            angle -= 15.0f;
+            if (angle <= 60.0f) increasing = true;
+        }
+    }
+}
+
+void SG90Controller::trackTarget(float relativeOffset) {
+    std::lock_guard<std::mutex> lock(dataMutex);
+    if (currentMode != SG90Mode::TRACKING) return;
+
+    float angle = currentAngle + relativeOffset * 15.0f; // -1~1 范围
+    angle = std::max(0.0f, std::min(180.0f, angle));
+    setSpeed(20);
+    setAngleSmooth(angle);
+}
+
+void SG90Controller::setMode(SG90Mode mode) {
+    std::lock_guard<std::mutex> lock(modeMutex);
+    currentMode = mode;
 }

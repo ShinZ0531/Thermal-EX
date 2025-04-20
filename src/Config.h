@@ -11,6 +11,7 @@
  */
 #define LED_BCM_PIN 23
 
+
 /**
  * @def BLINK_INTERVAL
  * @brief Time gap between light on and off. (ms)

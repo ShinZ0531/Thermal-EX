@@ -11,6 +11,10 @@
 
 #include "rpi_pwm.h"
 
+enum class SG90Mode {
+    SCANNING,
+    TRACKING
+};
 
 class SG90Controller {
 public:
@@ -42,17 +46,25 @@ public:
     int waitForKeyboardInput();
     int waitForKeyboardInputFixed();
     void notifyCallbacks(float targetangle);
+    void startScanning();
+    void stopScanning();
+    void setMode(SG90Mode mode);
 
 private:
-    void initializeGPIO();
     void pwmLoop();
     void updatePWM();
     int angleToPulse(int angle); 
     float angleToDuty(float angle) const;
 
+
+    void scanningRoutine();
+    void trackTarget(float relativeOffset);
+
     std::vector<SG90CallbackInterface*> sg90CallbackInterfaces;
     struct gpiod_line* servoLine;
     const char* chipName = "gpiochip0";
+
+    
 
     RPI_PWM pwm;
     std::thread pwmThread; 
@@ -64,6 +76,11 @@ private:
     std::atomic<bool> isActive_;
     std::atomic<bool> smoothMode;
     std::mutex angleLock;
+    std::atomic<SG90Mode> currentMode;
+    std::thread scanThread;
+    std::mutex modeMutex;
+    bool stopScanThread = false;
+
 
     const float PWM_FREQ = 50.0f;
     const float MIN_PULSE = 500.0f;

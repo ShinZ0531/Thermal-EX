@@ -117,8 +117,10 @@ void HCSR04::dataCollection() {
 void HCSR04::stopRanging() {
 	if(!isActive_) return;
 	isActive_ = false;
+
 	// wait for the worker thread to finish
     if (workerThread_.joinable()) workerThread_.join();
+	
 	// release GPIO lines
 	if (trigLine_ || echoLine_) {
 		if (trigLine_) gpiod_line_release(trigLine_);

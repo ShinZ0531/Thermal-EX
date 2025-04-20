@@ -17,6 +17,10 @@ add_executable(DistanceWaring
     DistanceWaring.cpp
 )
 
+add_executable(DistanceWaringSimple
+    DistanceWaringSimple.cpp
+)
+
 add_executable(AudioPlay
     Audio_greeting.cpp
 )
@@ -45,6 +49,15 @@ target_link_libraries(DistanceWaring PRIVATE
     # ${GPIOD_LIBRARIES}
 )
 
+target_link_libraries(DistanceWaringSimple PRIVATE 
+    HCSR04
+    LED
+    Keyboard
+    SG90
+    # ${GPIOD_LIBRARIES}
+)
+
+
 target_link_libraries(AudioPlay PRIVATE 
     Audio
     # ${GPIOD_LIBRARIES}
@@ -72,6 +85,11 @@ target_include_directories(DistanceWaring PRIVATE
     # ${GPIOD_INCLUDE_DIRS}
 )
 
+target_include_directories(DistanceWaringSimple PRIVATE 
+    ../src
+    # ${GPIOD_INCLUDE_DIRS}
+)
+
 target_include_directories(AudioPlay PRIVATE 
     ../src
     ${ALSA_INCLUDE_DIRS}
@@ -92,6 +110,10 @@ set_target_properties(SG90_move PROPERTIES
 )
 
 set_target_properties(DistanceWaring PROPERTIES
+    RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}
+)
+
+set_target_properties(DistanceWaringSimple PROPERTIES
     RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}
 )
 

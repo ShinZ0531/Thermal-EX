@@ -12,7 +12,6 @@ KeyboardInputMonitor::~KeyboardInputMonitor() {
 void KeyboardInputMonitor::startKeyboardInput() {
     if (!monitoring.exchange(true)) {
         exitRequested.store(false);
-        isWorking.store(false);
         monitorThread = std::thread(&KeyboardInputMonitor::monitorInput, this);
         monitoring.store(true);
     }
@@ -95,4 +94,16 @@ void KeyboardInputMonitor::monitorInput() {
         }
     }
     monitoring.store(false);
+}
+
+void KeyboardInputMonitor::setIsWorkningTrue() {
+    isWorking.store(true);
+}
+
+void KeyboardInputMonitor::setIsWorkningFalse() {
+    isWorking.store(false);
+}
+
+bool KeyboardInputMonitor::getIsWorking() {
+    return isWorking.load();
 }

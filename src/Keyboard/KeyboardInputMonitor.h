@@ -29,6 +29,9 @@ public:
     void stopKeyboardInput();
 
     bool isExitRequested();
+    void setIsWorkningTrue();
+    void setIsWorkningFalse();
+    bool getIsWorking();
 
 private:
     std::vector<KeyboardCallbackInterface*> keyboardCallbackInterfaces;
