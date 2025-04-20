@@ -5,39 +5,23 @@
 #include <thread>
 #include <atomic>
 #include <mutex>
-#include <vector>
-#include <iostream>
 
 class AudioPlayer {
 public:
-    struct AudioPlayerCallbackInterface {
-        virtual void hasAudioPlayerSample(int pulse) = 0;
-    };
-
-    AudioPlayer();
+    AudioPlayer(const std::string& device = "plughw:2,0");
     ~AudioPlayer();
 
     bool playWav(const std::string& filepath, bool async = false);
-    void stopAudio();
+    void stop();
     bool isPlaying() const;
 
-    void setOnFinishCallback(void(*callback)());
-
-    void recognizeSpeech();
-
-    void registerCallback(AudioPlayerCallbackInterface* ci) {
-		audioplayerCallbackInterfaces.push_back(ci);
-	}
-
 private:
-    std::vector<AudioPlayerCallbackInterface*> audioplayerCallbackInterfaces;
+    std::string deviceName;
     std::atomic<bool> playing;
-    std::thread playerThread;
+    std::thread playThread;
     std::mutex mtx;
 
-
     void playTask(const std::string& filepath);
-    void triggerCallbacks(int pulse);
 };
 
 #endif // AUDIOPLAYER_H

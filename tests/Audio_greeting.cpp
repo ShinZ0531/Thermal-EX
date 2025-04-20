@@ -7,14 +7,8 @@
  * @return Integer 0 upon exit success, non-zero on error.
  */
 
-int main() {
-    try {
-        AudioPlayer audioPlayer;
-        audioPlayer.playWav("ThermalExVoice/Greeting.wav", true);
-
-    } catch (const std::exception& e) {
-        std::cerr << "Error: " << e.what() << std::endl;
-        return 1;
-    }
+ int main() {
+    AudioPlayer player("plughw:2,0");
+    player.playWav("../ThermalExVoice/Greeting.wav", false);
     return 0;
 }

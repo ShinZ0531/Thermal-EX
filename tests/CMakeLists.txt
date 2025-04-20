@@ -47,6 +47,8 @@ target_link_libraries(DistanceWaring PRIVATE
 target_link_libraries(AudioPlay PRIVATE 
     Audio
     # ${GPIOD_LIBRARIES}
+    asound
+    ${ALSA_LIBRARIES}
 )
 
 target_include_directories(HCSR04_Printer PRIVATE
@@ -71,6 +73,8 @@ target_include_directories(DistanceWaring PRIVATE
 
 target_include_directories(AudioPlay PRIVATE 
     ../src
+    ${ALSA_INCLUDE_DIRS}
+    asound
     # ${GPIOD_INCLUDE_DIRS}
 )
 
