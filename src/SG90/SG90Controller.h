@@ -58,16 +58,11 @@ private:
     std::thread pwmThread; 
     std::mutex dataMutex;
 
-    // std::atomic<bool> isActive;
-    // std::atomic<int> currentPulseMicros;
-    // std::thread pwmThread;
-
     std::atomic<float> currentAngle;
     std::atomic<float> targetAngle; 
     std::atomic<float> moveSpeed;
     std::atomic<bool> isActive_;
     std::atomic<bool> smoothMode;
-    // std::atomic<float> currentAngle;
     std::mutex angleLock;
 
     const float PWM_FREQ = 50.0f;

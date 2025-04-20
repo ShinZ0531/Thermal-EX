@@ -41,6 +41,7 @@ target_link_libraries(DistanceWaring PRIVATE
     HCSR04
     LED
     Keyboard
+    SG90
     # ${GPIOD_LIBRARIES}
 )
 
