@@ -29,6 +29,7 @@
 
 或油管↓  
 [![视频封面描述](https://img.youtube.com/vi/FJetTLFNYLg/0.jpg)](https://www.youtube.com/watch?v=FJetTLFNYLg)
+
 ### 计划中的更新功能
 
 加入麦克风和音响，以提供更好的互动体验。
@@ -36,6 +37,7 @@
 增加摄像头和人脸识别功能。
  
 ![Preview](image/EX.jpg)  
+
 ## 📜 如何使用
 
 ```cmake
@@ -44,11 +46,8 @@ cd build
 cmake .. -DCMAKE_BUILD_TYPE=Release
 make -j
 ```
-TODO: 现在使用的传感器
 
-**./light**：它会打印出明日方舟和Thermal-EX的图标，并输出Thermal-EX的几句台词，同时LED小灯会开始闪烁。LED闪烁的频率可以通过键盘输入改变。
-
-**./Ultrasonic**：我们使用超声波传感器来测量距离，并打印在屏幕上！同时，有可选项，时间和计算出来的距离会被记录在单独的文件里，以供后期数据分析。
+在build文件夹中，可以看到很多可执行文件，具体功能请查阅src文件夹下的README.md或wiki。
 
 ## 📦  版本
 
