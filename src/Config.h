@@ -25,6 +25,8 @@
  */
 #define ULTRASONIC_TRIG_BCM_PIN   20
 #define ULTRASONIC_ECHO_BCM_PIN   21
+// #define ULTRASONIC_ECHO_BCM_PIN   22
+
 
 
 
@@ -46,3 +48,24 @@
  * @note formula: blink_interval_ms = distance_cm * DISTANCE_TO_FREQ_RATIO
  */
 #define DISTANCE_TO_FREQ_RATIO  10
+
+/**
+ * @def SG90_BCM_PIN
+ * @brief BCM number of GPIO which is connected with the SG90 servo motor.
+ * @def SG90_PWM_CHANNEL
+ * @brief PWM channel of the SG90 servo motor.
+ * @def SG90_PWM_CHIP
+ * @brief PWM chip of the SG90 servo motor.
+ * @note PWM channel 0, chip 0 for GPIO12(pin32)
+ */
+#define SG90_BCM_PIN 18
+#define SG90_PWM_CHANNEL 0
+#define SG90_PWM_CHIP 0
+#define SG90_PWM_FREQ 50.0f
+#define SG90_PWM_MIN_PULSE 500.0f
+#define SG90_PWM_MAX_PULSE 2400.0f
+#define SG90_MAX_ANGLE 180.0f
+#define SG90_MIN_ANGLE 0.0f
+#define SG90_DEFAULT_ANGLE 90.0f
+#define SG90_DEFAULT_SPEED 30.0f
+#define SG90_UPDATE_INTERVAL 10ms
