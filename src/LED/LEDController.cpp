@@ -33,7 +33,7 @@ void LEDController::initializeGPIO() {
 void LEDController::startLED() {
     isActive_ = true;
     workerThread_ = std::thread(&LEDController::LEDBlinking, this);
-    keybordThread_ = std::thread(&LEDController::waitForKeyboardInput, this);
+    // keybordThread_ = std::thread(&LEDController::waitForKeyboardInput, this);
 }
 
 void LEDController::LEDBlinking() {
@@ -49,15 +49,19 @@ void LEDController::LEDBlinking() {
 }
 
 void LEDController::stopLED() {
-    if(!isActive_) return;
+    if (!isActive_) return;
     isActive_ = false;
+
     if (workerThread_.joinable()) workerThread_.join();
     if (keybordThread_.joinable()) keybordThread_.join();
+
     if (ledLine) {
         gpiod_line_release(ledLine);
-        gpiod_chip_close(gpiod_line_get_chip(ledLine));
+        auto* chip = gpiod_line_get_chip(ledLine);
+        gpiod_chip_close(chip);
+        ledLine = nullptr;
     }
-}   
+} 
 
 /**
  * @brief Set the time gap between on and off

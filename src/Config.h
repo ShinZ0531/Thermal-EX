@@ -11,6 +11,7 @@
  */
 #define LED_BCM_PIN 23
 
+
 /**
  * @def BLINK_INTERVAL
  * @brief Time gap between light on and off. (ms)
@@ -69,3 +70,6 @@
 #define SG90_DEFAULT_ANGLE 90.0f
 #define SG90_DEFAULT_SPEED 30.0f
 #define SG90_UPDATE_INTERVAL 10ms
+
+#define AUDIO_DEVICE "plughw:2,0"
+#define AUDIO_FILE_PATH "../ThermalExVoice/"
