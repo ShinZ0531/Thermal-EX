@@ -25,10 +25,13 @@ In this project, we are ready to use Raspberry Pi 5 to make a smart robot based 
 ### Watch our video demo
 #### Finished product function demonstration
 **Target tracking**    
-[![视频封面描述](https://img.youtube.com/vi/ErilsZ5SbGk/0.jpg)](https://www.youtube.com/shorts/ErilsZ5SbGk)  
+[![视频封面描述](https://img.youtube.com/vi/ErilsZ5SbGk/0.jpg)](https://www.youtube.com/shorts/ErilsZ5SbGk)   
+or bilibili→[THERMAL-EX 即将完工！](https://www.bilibili.com/video/BV1Ac51znESn/)  
 
 **Multi-functional head bracket**  
 [![视频封面描述](https://img.youtube.com/vi/UxmqShul9XQ/0.jpg)](https://www.youtube.com/shorts/UxmqShul9XQ)  
+or bilibili→[THERMAL-EX 功能展示](https://www.bilibili.com/video/BV1tQ5yz4ENp/)
+
 
 
 #### Early function demonstration

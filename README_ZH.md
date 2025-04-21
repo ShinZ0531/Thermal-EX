@@ -24,9 +24,13 @@
 ### 查看我们的视频演示
 成品功能展示：  
 **目标追踪**    
+[THERMAL-EX 即将完工！](https://www.bilibili.com/video/BV1Ac51znESn/)  
+或油管↓  
 [![视频封面描述](https://img.youtube.com/vi/ErilsZ5SbGk/0.jpg)](https://www.youtube.com/shorts/ErilsZ5SbGk)  
 
 **多功能头部支架**  
+[THERMAL-EX 功能展示](https://www.bilibili.com/video/BV1tQ5yz4ENp/)
+或油管↓  
 [![视频封面描述](https://img.youtube.com/vi/UxmqShul9XQ/0.jpg)](https://www.youtube.com/shorts/UxmqShul9XQ)  
 
 早期功能展示：  
