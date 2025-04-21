@@ -142,6 +142,10 @@ Print logo of original game and THRM-EX.
       <div style="position: relative; padding: 15px; background: #f0f2f5; border-radius: 10px; margin: 10px 0;">
         <div style="position: absolute; left: -10px; top: 20px; width: 0; height: 0; border-top: 10px solid transparent; border-bottom: 10px solid transparent; border-right: 10px solid #f0f2f5;"></div>
         <strong>Juekun Jiang</strong>: crazy Thursday v me 50
+        <!--A: 我从小就爱玩明日方舟，一直想要一个自己的自爆卡车，现在终于能实现了！过两天就把学校炸了然后解放全英国-->
+        <!--B: 我真的要给你放进来吗-->
+        <!--C:当彩蛋吧-->
+        <!--B: 行吧我看看给你塞哪儿-->
         <br>
         <em>Developed hardware, such as motor drivers
 
@@ -190,16 +194,18 @@ Print logo of original game and THRM-EX.
 
   <tr>
     <td align="center">
-      <a href="https://github.com/成员B账号">
-        <img src="https://github.com/成员B账号.png" width="100" style="border-radius:50%">
+      <a href="https://github.com/HANJIANG64">
+        <img src="https://github.com/HANJIANG64.png" width="100" style="border-radius:50%">
       </a>
     </td>
     <td>
       <div style="position: relative; padding: 15px; background: #f0f2f5; border-radius: 10px; margin: 10px 0;">
         <div style="position: absolute; left: -10px; top: 20px; width: 0; height: 0; border-top: 10px solid transparent; border-bottom: 10px solid transparent; border-right: 10px solid #f0f2f5;"></div>
-        <strong>Han Jiang</strong>: OFFLINE
+        <strong>Han Jiang</strong>: Seize the day
         <br>
-        <em>Assisted in 3D printing tasks</em>
+        <em>Assisted in 3D printing tasks
+        
+  Assisted with minor adjustments to the servo motor code during development</em>
       </div>
     </td>
   </tr>

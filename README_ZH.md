@@ -187,14 +187,14 @@ gpiod
 
   <tr>
     <td align="center">
-      <a href="https://github.com/成员B账号">
-        <img src="https://github.com/成员B账号.png" width="100" style="border-radius:50%">
+      <a href="https://github.com/HANJIANG64">
+        <img src="https://github.com/HANJIANG64.png" width="100" style="border-radius:50%">
       </a>
     </td>
     <td>
       <div style="position: relative; padding: 15px; background: #f0f2f5; border-radius: 10px; margin: 10px 0;">
         <div style="position: absolute; left: -10px; top: 20px; width: 0; height: 0; border-top: 10px solid transparent; border-bottom: 10px solid transparent; border-right: 10px solid #f0f2f5;"></div>
-        <strong>Han Jiang</strong>: 离线中
+        <strong>Han Jiang</strong>: 把握当下
         <br>
         <em>负责一部分3D打印</em>
       </div>
