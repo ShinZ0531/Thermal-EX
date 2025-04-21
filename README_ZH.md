@@ -22,7 +22,12 @@
 在这个项目，我们打算使用树莓派5制作一个基于Thermal-EX的智能机器人，Thermal-EX是游戏《明日方舟》中的一个角色，非常热情，时刻准备着给予你帮助。我们希望通过这种方式来让更多的人感受到这个角色的有趣之处，用Thermal-EX给大家带来笑容。
 
 ### 查看我们的视频演示
-成品功能展示：
+成品功能展示：  
+**目标追踪**    
+[![视频封面描述](https://img.youtube.com/vi/ErilsZ5SbGk/0.jpg)](https://www.youtube.com/shorts/ErilsZ5SbGk)  
+
+**多功能头部支架**  
+[![视频封面描述](https://img.youtube.com/vi/UxmqShul9XQ/0.jpg)](https://www.youtube.com/shorts/UxmqShul9XQ)  
 
 早期功能展示：  
 [老大说4月前看不到视频就不让我玩太刀喵](https://www.bilibili.com/video/BV16FZzYbERi) (bilibili连接)
@@ -47,7 +52,7 @@ cmake .. -DCMAKE_BUILD_TYPE=Release
 make -j
 ```
 
-在build文件夹中，可以看到很多可执行文件，具体功能请查阅src文件夹下的README.md或wiki。
+在build文件夹中，可以看到很多可执行文件，具体功能请查阅tests文件夹下的README.md或wiki。
 
 ## 📦  版本
 

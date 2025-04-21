@@ -23,9 +23,15 @@
 In this project, we are ready to use Raspberry Pi 5 to make a smart robot based on Thermal-EX, a character from game Arknights. He's a enthusiastic robot, ready to help you anywhere and anytime. We want to use this way for building the connection with the fan groups of this game, makeing fun for them who are love this game deeply.   
 
 ### Watch our video demo
-Finished product function demonstration:   
+#### Finished product function demonstration
+**Target tracking**    
+[![视频封面描述](https://img.youtube.com/vi/ErilsZ5SbGk/0.jpg)](https://www.youtube.com/shorts/ErilsZ5SbGk)  
 
-Early function demonstration:   
+**Multi-functional head bracket**  
+[![视频封面描述](https://img.youtube.com/vi/UxmqShul9XQ/0.jpg)](https://www.youtube.com/shorts/UxmqShul9XQ)  
+
+
+#### Early function demonstration
 [![视频封面描述](https://img.youtube.com/vi/FJetTLFNYLg/0.jpg)](https://www.youtube.com/watch?v=FJetTLFNYLg)
 
 or bilibili→
@@ -48,7 +54,7 @@ cmake .. -DCMAKE_BUILD_TYPE=Release
 make -j
 ```
 
-In the build folder, you can see many executable files. For specific functions, please refer to the README.md or wiki under the src folder.
+In the build folder, you can see many executable files. For specific functions, please refer to the README.md under the tests folder or wiki.
 
 ## 📦 version
 
