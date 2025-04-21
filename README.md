@@ -116,7 +116,7 @@ Make some code adjustment.
         <br>
         <em>Developed hardware, such as motor drivers
 
-  implemented HCSR04 ultrasonic sensor and motor driver code
+  Implemented HCSR04 ultrasonic sensor and motor driver code  
   Assisted in device assembly</em>
       </div>
     </td>
@@ -133,8 +133,8 @@ Make some code adjustment.
         <div style="position: absolute; left: -10px; top: 20px; width: 0; height: 0; border-top: 10px solid transparent; border-bottom: 10px solid transparent; border-right: 10px solid #f0f2f5;"></div>
         <strong>Xiaxi Li</strong>: If you dare mess with me, you're picking on cotton.
         <br>
-        <em>Handled promotions and video production
-        
+        <em>Handled promotions and video production  
+
   Built foundational camera control code</em>
       </div>
     </td>
@@ -185,7 +185,7 @@ Make some code adjustment.
 - The theme is the Arknights character Thermal-EX 
 <br>  
 
-`📅 2025.02.17 -> 2025.02.23` **Project Planning **  
+`📅 2025.02.17 -> 2025.02.23` **Project Planning**  
 🟦🟦⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜ 20%
 - Function division: Motor and drive, voice playback, 3D printed housing, camera, ultrasonic, lighting  
 - 分工并寻找可用参考  
@@ -233,7 +233,7 @@ Make some code adjustment.
 <br> 
 
 ## 💬 Reference
-Use the PWM control repository from [rpi_pwm](https://github.com/berndporr/rpi_pwm)
+Use the PWM control repository from [rpi_pwm](https://github.com/berndporr/rpi_pwm) 
 
 ## ⚖️ License
 
