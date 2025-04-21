@@ -21,6 +21,7 @@ SG90Controller::SG90Controller(int pwm_channel, int pwm_chip)
 }
 
 SG90Controller::~SG90Controller() {
+    stopScanning();
     disableSG90();
 }
 
@@ -80,8 +81,8 @@ void SG90Controller::setSpeed(float deg_per_sec) {
 }
 
 void SG90Controller::enableSG90() {
-    if(!isActive_) {
-        isActive_ = true;
+    if(!isActive_.load()) {
+        isActive_ .store(true);
         pwmThread = std::thread(&SG90Controller::updatePWM, this);
     }
 }
@@ -89,11 +90,10 @@ void SG90Controller::enableSG90() {
 void SG90Controller::disableSG90() {
     if(!isActive_) return;
     isActive_ = false;
-
-    pwm.stop();
     
     if(pwmThread.joinable()) pwmThread.join();
-    
+ 
+    pwm.stop();
 }
 
 int SG90Controller::waitForKeyboardInput() {
@@ -168,7 +168,7 @@ void SG90Controller::startScanning() {
 
 void SG90Controller::stopScanning() {
     std::lock_guard<std::mutex> lock(modeMutex);
-    stopScanThread = true;
+    stopScanThread.store(true);
     if (scanThread.joinable()) scanThread.join();
 }
 

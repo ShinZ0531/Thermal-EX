@@ -75,11 +75,11 @@ private:
     std::atomic<float> moveSpeed;
     std::atomic<bool> isActive_;
     std::atomic<bool> smoothMode;
+    std::atomic<bool> stopScanThread = false;
     std::mutex angleLock;
     std::atomic<SG90Mode> currentMode;
     std::thread scanThread;
     std::mutex modeMutex;
-    bool stopScanThread = false;
 
 
     const float PWM_FREQ = 50.0f;
