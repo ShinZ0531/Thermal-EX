@@ -197,7 +197,7 @@ Make some code adjustment.
 `📅 2025.02.17 -> 2025.02.23` **Project Planning**  
 🟦🟦⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜ 20%
 - Function division: Motor and drive, voice playback, 3D printed housing, camera, ultrasonic, lighting  
-- 分工并寻找可用参考  
+- Divide the work and look for available references  
 <br>  
 
 `📅 2025.02.24 -> 2025.03.09` **Start trying**  
