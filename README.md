@@ -59,6 +59,23 @@ make -j
 
 In the build folder, you can see many executable files. For specific functions, please refer to the README.md under the tests folder or wiki.
 
+### lib
+gpiod 
+
+
+## 🛠️ Hardware Components
+| **Device**               | **Model/Usage**                              |
+|--------------------------|---------------------------------------------|
+| 🖥️ **Raspberry Pi**      | Model 5 (Main controller)                   |
+| 📡 **Ultrasonic Sensor** | HC-SR04 (Distance measurement)              |
+| ⚙️ **Servo Motor**       | SG90 (Rotate head)                   |
+| 💡 **LED Module**         | Basic LEDs (Status indicators and atmosphere)              |
+| 🔊 **USB Speaker**        | Anyone            |
+
+When assembling, feel free to use your ideas - including but not limited to using electrical tape, breadboards, 502 glue and wire. And so on. And any ohter decorations just you want. :)
+
+The part of the 3D printed shell is in the '3Dprinting' folder. It is recommended to make further adjustments to the size and details.
+
 ## 📦 version
 
 ### Released Edition
@@ -72,27 +89,30 @@ The 3D printed shell has also been basically completed, and the lovely Thermal-E
 #### 2.2.0
 Add callback interfaces to the LED and HCSR04 ultrasonic sensors. Each function has a separate test.
 
-#### 2.0.0
-The first released edition! It offers two main functions, LED light blinking and ultrasonic ranging.
-
 #### 2.2.0
 Add callback for LED and HCSR04 ultrasonic sensor. Provide individual tests for each function.
 
-
+#### 2.0.0
+The first released edition! It offers two main functions, LED light blinking and ultrasonic ranging.
 
 ### Unreleased Edition
-#### 1.0.0
-Print logo of original game and THRM-EX.  
-#### 1.1.0
-Add new function about light on and off.  
-#### 1.2.0
-Using libgpio to control the GPIO, instead of ~~antique~~ wiringPi. Add Doxygen comments.  
-#### 1.3.0
-New function about ultrasonic, but wiringPi.  
-#### 1.4.0
-Ultrasonic ranging, using libgpio instead of wiringPi. Finally! 
 #### 2.1.0
 Make some code adjustment.
+
+#### 1.4.0
+Ultrasonic ranging, using libgpio instead of wiringPi. Finally! 
+
+#### 1.3.0
+New function about ultrasonic, but wiringPi. 
+
+#### 1.2.0
+Using libgpio to control the GPIO, instead of ~~antique~~ wiringPi. Add Doxygen comments.  
+
+#### 1.1.0
+Add new function about light on and off.  
+
+#### 1.0.0
+Print logo of original game and THRM-EX.  
 
 ## 😙 Contribute
 <table>
